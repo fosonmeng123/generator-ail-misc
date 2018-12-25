@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+  <script>
+    requirejs.config({
+      baseUrl: 'https://unpkg.com',
+      paths: {
+        'vue':        'https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.21/vue.min',
+        'vue-router': 'https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.2/vue-router.min',
+        'vuex':       'https://cdnjs.cloudflare.com/ajax/libs/vuex/3.0.1/vuex.min',
+      }
+    });
+  </script>
+</head>
+<body>
+<div id="app">
+  <router-view></router-view>
+</div>
+<script>
+  requirejs([
+    'vue',
+    'vue-router',
+    'vuex',
+  ], (Vue, VueRouter, Vuex) => {
+    Vue.config.devtools = true;
+
+    const Home = {
+      template: `<div>
+  <h1>{{title}}</h1>
+</div>`,
+      data () {
+        return {
+          title: '<%= title %>',
+        };
+      },
+    };
+
+    Vue.use(VueRouter);
+    Vue.use(Vuex);
+
+    const router = new VueRouter({
+      routes: [
+        {
+          path: '/',
+          component: Home,
+        },
+      ],
+    });
+
+    const store = new Vuex.Store({
+      state: {},
+      getters: {},
+      mutations: {},
+    });
+
+    const app = new Vue({
+      router,
+      store,
+      data () {
+        return {};
+      },
+    }).$mount('#app');
+  });
+</script>
+</body>
+</html>
