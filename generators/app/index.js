@@ -9,6 +9,7 @@ module.exports = class extends Generator {
     this.log(`Generators:\n    ${[
       'ail-vue:editorconfig',
       'ail-vue:vue-requirejs',
+      'ail-vue:rollup',
     ].join('\n    ')}`);
   }
 };
