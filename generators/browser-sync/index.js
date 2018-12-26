@@ -4,22 +4,26 @@ module.exports = class extends BaseGenerator {
   constructor (args, opts) {
     super(args, opts);
     this.assets = [
-      'public/index.html',
+      'devServer.js'
     ];
   }
-
   async prompting () {
     this.answers = await this.prompt([
       {
-        type: 'input',
-        name: 'title',
-        message: 'Your project title',
+        type: 'confirm',
+        name: 'installDepsGlobal',
+        message: 'Install "browser-sync" to global?',
       },
     ]);
   }
 
-
   exec () {
     this.copyAssets();
+  }
+
+  finishing () {
+    if (this.answers.installDepsGlobal) {
+      this.spawnCommand('npm', ['link', 'browser-sync']);
+    }
   }
 };

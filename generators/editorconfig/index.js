@@ -1,11 +1,14 @@
-const Generator = require('yeoman-generator');
+const BaseGenerator = require('../BaseGenerator.js');
 
-module.exports = class extends Generator {
-  copyAssets () {
-    this.fs.copyTpl(
-      this.templatePath('.editorconfig'),
-      this.destinationPath('.editorconfig'),
-      {}
-    );
+module.exports = class extends BaseGenerator {
+  constructor (args, opts) {
+    super(args, opts);
+    this.assets = [
+      '.editorconfig'
+    ];
+  }
+
+  exec () {
+    this.copyAssets();
   }
 };
