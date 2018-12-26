@@ -7,6 +7,7 @@ module.exports = class extends Generator {
 
   list () {
     this.log(`Generators:\n    ${[
+      'ail-vue:editorconfig',
       'ail-vue:vue-requirejs',
     ].join('\n    ')}`);
   }
