@@ -1,4 +1,5 @@
 const BaseGenerator = require('../BaseGenerator.js');
+const chalk = require('chalk');
 
 module.exports = class extends BaseGenerator {
   constructor (args, opts) {

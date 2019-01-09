@@ -37,7 +37,6 @@ ${chalk.white('Please confirm whether to proceed or not: (yes/NO)')}`,
     }
   }
 
-
   exec () {
     if (this.answers.confirm === 'yes') {
       this.copyAssets();
