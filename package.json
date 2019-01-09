@@ -1,29 +1,27 @@
 {
-  "name": "generator-ail-vue",
+  "name": "generator-ail",
   "version": "0.0.1",
-  "description": "A development environment for vue.js.",
+  "description": "Miscellaneous templates.",
   "files": [
     "generators"
   ],
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "test": "mocha tests/test-main.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fosonmeng/generator-ail-vue.git"
+    "url": "git+https://github.com/fosonmeng/generator-ail.git"
   },
   "keywords": [
-    "yeoman-generator",
-    "vue",
-    "requirejs"
+    "yeoman-generator"
   ],
   "author": "fosonmeng",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fosonmeng/generator-ail-vue/issues"
+    "url": "https://github.com/fosonmeng/generator-ail/issues"
   },
-  "homepage": "https://github.com/fosonmeng/generator-ail-vue#readme",
+  "homepage": "https://github.com/fosonmeng/generator-ail#readme",
   "dependencies": {
     "yeoman-generator": "^3.2.0"
   },
