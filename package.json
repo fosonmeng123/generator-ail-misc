@@ -1,5 +1,5 @@
 {
-  "name": "generator-ail",
+  "name": "generator-ail-misc",
   "version": "0.0.1",
   "description": "Miscellaneous templates.",
   "files": [
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fosonmeng/generator-ail.git"
+    "url": "git+https://github.com/fosonmeng/generator-ail-misc.git"
   },
   "keywords": [
     "yeoman-generator"
@@ -19,13 +19,14 @@
   "author": "fosonmeng",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fosonmeng/generator-ail/issues"
+    "url": "https://github.com/fosonmeng/generator-ail-misc/issues"
   },
-  "homepage": "https://github.com/fosonmeng/generator-ail#readme",
+  "homepage": "https://github.com/fosonmeng/generator-ail-misc#readme",
   "dependencies": {
     "yeoman-generator": "^3.2.0"
   },
   "devDependencies": {
+    "chalk": "^2.4.2",
     "yeoman-assert": "^3.1.1",
     "yeoman-test": "^1.9.1"
   }

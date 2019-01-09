@@ -5,22 +5,10 @@ module.exports = class extends BaseGenerator {
   constructor (args, opts) {
     super(args, opts);
     this.assets = [
-      'rollup.config.js',
-      'src/main.js',
-    ];
-    this.dependencies = [
-      'rollup',
-      'rollup-plugin-buble',
-      'rollup-plugin-commonjs',
-      'rollup-plugin-json',
-      'rollup-plugin-node-resolve',
-      'rollup-pluginutils',
+      'public/index.html',
     ];
     this.finishMessage = `
-${chalk.blueBright('NPM setups')}
-${chalk.magenta('build:')} ${chalk.white('rollup -c')}
-${chalk.magenta('watch:')} ${chalk.white('rollup -c -w')}
-${chalk.white('Middlewares refer to: https://github.com/rollup/rollup-pluginutils')}`;
+${chalk.yellow('Start a local server to view the page.')}`
   }
 
   async prompting () {
@@ -32,13 +20,23 @@ ${chalk.white('Middlewares refer to: https://github.com/rollup/rollup-pluginutil
 ${chalk.blueBright('Template Infomation')}
 ${chalk.cyan('files (' + this.assets.length + '):')}
   ${this.assets.map((fn) => chalk.yellow(fn)).join('\n  ')}
-${chalk.cyan('dependencies (' + this.dependencies.length + '):')}
-  ${this.dependencies.map((fn) => chalk.yellow(fn)).join('\n  ')}
 
 ${chalk.white('Please confirm whether to proceed or not: (yes/NO)')}`,
       },
     ]);
+
+    if (this.answers.confirm === 'yes') {
+      const name = await this.prompt([
+        {
+          type: 'input',
+          name: 'title',
+          message: 'Your project title:',
+        },
+      ]);
+      Object.assign(this.answers, name);
+    }
   }
+
 
   exec () {
     if (this.answers.confirm === 'yes') {
