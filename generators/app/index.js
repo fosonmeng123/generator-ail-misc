@@ -12,13 +12,27 @@ module.exports = class extends Generator {
       'jshint',
       'rollup',
       'systemjs2',
-      'vue(requirejs)',
+      {
+        name: 'vue',
+        description: 'requirejs',
+      },
       'webpack',
+      {
+        name: 'typescript',
+        description: 'system 0.21',
+      },
     ];
   }
 
   list () {
     this.log(`${chalk.blueBright('Generators')}
-  ${this.generators.map((n) => chalk.yellow('ail-misc:' + n)).join('\n  ')}`);
+  ${this.generators.map((n) => {
+    if (typeof n === 'object') {
+      return chalk.yellow('ail-misc:' + n.name) +
+        chalk.white('(' + n.description + ')')
+    } else {
+      return chalk.yellow('ail-misc:' + n);
+    }
+  }).join('\n  ')}`);
   }
 };

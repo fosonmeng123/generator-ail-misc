@@ -5,22 +5,27 @@ module.exports = class extends BaseGenerator {
   constructor (args, opts) {
     super(args, opts);
     this.assets = [
-      'devServer.js',
-      'src/main.js',
-      'src/modules/foo.js',
-      'src/styles/style.css',
+      'tsconfig.base.json',
+      'tsconfig.json',
+      'index.html',
+      'src/main.ts',
+      'src/global.d.ts',
+      'src/modules/Student.ts',
+      'src/modules/greeter/index.js',
+      'src/modules/greeter/index.d.ts',
     ];
     this.dependencies = [
-      '@babel/core',
-      '@babel/preset-env',
-      'babelify',
-      'budo',
-      'cssify',
+      '@types/lodash',
+      'lodash',
+      'typescript',
     ];
     this.finishMessage = `
-${chalk.blueBright('Resources')}
-${chalk.white('https://github.com/browserify/browserify/wiki/list-of-transforms ')}
-${chalk.white('https://github.com/browserify/browserify/wiki/browserify-tools')}`
+${chalk.blueBright('NPM setups')}
+${chalk.magenta('watch:')} ${chalk.white('npx tsc -w -p tsconfig.json')}
+${chalk.magenta('build:')} ${chalk.white('Maybe use "')}${chalk.yellow('gulp/webpack')}${chalk.white('"?')}
+${chalk.white(`More setups refer to:
+ https://www.typescriptlang.org/docs/home.html
+ http://json.schemastore.org/tsconfig`)}`;
   }
 
   async prompting () {
@@ -38,6 +43,17 @@ ${chalk.cyan('dependencies (' + this.dependencies.length + '):')}
 ${chalk.white('Please confirm whether to proceed or not: (yes/NO)')}`,
       },
     ]);
+
+    if (this.answers.confirm === 'yes') {
+      const name = await this.prompt([
+        {
+          type: 'input',
+          name: 'title',
+          message: 'Your project title:',
+        },
+      ]);
+      Object.assign(this.answers, name);
+    }
   }
 
   exec () {

@@ -10,6 +10,7 @@ module.exports = class extends BaseGenerator {
     this.finishMessage = `
 ${chalk.yellow('Run "node devServer.js to start"')}`;
   }
+
   async prompting () {
     this.answers = await this.prompt([
       {
@@ -27,9 +28,9 @@ ${chalk.white('Please confirm whether to proceed or not: (yes/NO)')}`,
     if (this.answers.confirm === 'yes') {
       const installDepsGlobal = await this.prompt([
         {
-          type: 'confirm',
+          type: 'input',
           name: 'installDepsGlobal',
-          message: 'Install "browser-sync" to global?',
+          message: 'Install "browser-sync" to global: (yes/NO)?',
         },
       ]);
       Object.assign(this.answers, installDepsGlobal);
@@ -39,14 +40,14 @@ ${chalk.white('Please confirm whether to proceed or not: (yes/NO)')}`,
   exec () {
     if (this.answers.confirm === 'yes') {
       this.copyAssets();
-      this.log(this.finishMessage);
+      this.finishing();
     } else {
       this.log(chalk.gray('Operation canceled.'))
     }
   }
 
-  finishing () {
-    if (this.answers.installDepsGlobal) {
+  install () {
+    if (this.answers.installDepsGlobal === 'yes') {
       this.spawnCommand('npm', ['link', 'browser-sync']);
     }
   }

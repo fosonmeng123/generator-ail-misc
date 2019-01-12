@@ -6,6 +6,7 @@ module.exports = class extends Generator {
 
     this.assets = [];
     this.answers = {};
+    this.finishMessage = '';
   }
 
   copyAssets() {
@@ -16,5 +17,12 @@ module.exports = class extends Generator {
         this.answers
       );
     }
+  }
+
+  finishing() {
+    this.log(`
+Finishing---------------------------------------${this.finishMessage}
+------------------------------------------------
+`)
   }
 };

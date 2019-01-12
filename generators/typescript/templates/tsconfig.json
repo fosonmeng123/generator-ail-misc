@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "outFile": "./dist/main.js",
+    "allowJs": true
+  },
+  "include": [
+    "./src/main.ts",
+    "./src/global.d.ts"
+  ],
+  "exclude": []
+}

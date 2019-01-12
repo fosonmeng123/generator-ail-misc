@@ -41,7 +41,7 @@ ${chalk.white('Please confirm whether to proceed or not: (yes/NO)')}`,
   exec () {
     if (this.answers.confirm === 'yes') {
       this.copyAssets();
-      this.log(this.finishMessage);
+      this.finishing();
     } else {
       this.log(chalk.gray('Operation canceled.'))
     }
