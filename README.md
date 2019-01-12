@@ -1,7 +1,7 @@
 Templates of Stuffs
 -----------------------
 
-## Install
+## 1. Install
 
 ```bash
 npm i -g yo
@@ -16,9 +16,9 @@ cd generator-ail-misc
 npm link
 ```
 
-## Run
+## 2. Run
 
-0. Help
+### 2.1 Help
 
 To get the list of templates
 
@@ -26,16 +26,16 @@ To get the list of templates
 yo ail-misc
 ```
 
-0. Copy a template
+### 2.2 Copy a template
 
 ```bash
 yo ail-misc:typescript
 ```
 
-## Templates
+## 3. Templates
 
 | Name         | Description      |
-|--------------+------------------|
+|--------------|------------------|
 | browser-sync |                  |
 | browserify   |                  |
 | editorconfig |                  |
@@ -46,3 +46,8 @@ yo ail-misc:typescript
 | vue          | with requirejs   |
 | webpack      |                  |
 | typescript   | with system 0.21 |
+
+## 4. References
+
+https://yeoman.io/  
+https://github.com/yeoman/yeoman
