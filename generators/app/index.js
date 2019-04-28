@@ -21,6 +21,7 @@ module.exports = class extends Generator {
         name: 'typescript',
         description: 'system 0.21',
       },
+      'modernizr',
     ];
   }
 

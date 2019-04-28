@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Modernizr Testing Page</title>
+    <style>
+      main { max-width: 960px; margin: 5rem auto; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <h2>Installation</h2>
+        <pre><code>
+npm i -g modernizr
+cp modernizr-config-all.json modernizr-config.json # and then edit the file
+modernizr -c modernizr-config.json
+        </code></pre>
+      </section>
+      <section>
+        <h2>Results</h2>
+        <div class="results"></div>
+      </section>
+    </main>
+    <script src="https://unpkg.com/jsontreejs@3.0.0/dist/js/jsonTree.min.js"></script>
+    <script src="modernizr.js"></script>
+    <script>
+      new jsonTree(Modernizr, '.results', false);
+    </script>
+  </body>
+</html>
